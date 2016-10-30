@@ -4,16 +4,17 @@
 
 		<ul class="filters">
 			<li class="filters__item">
-				<a href="" ng-click="bl.sortBooks($event, 'author')">автору</a>
+				<a href="/" ng-click="bl.sortBooks($event, 'author')">автору</a>
 			</li>
 			<li class="filters__item">
-				<a href="" ng-click="bl.sortBooks($event, 'publication')">дате</a>
+				<a href="/" ng-click="bl.sortBooks($event, 'publication')">дате</a>
+			</li>
+			<li class="filters__item filters__item_last">
+				<a href="" ng-click="bl.addBook($event)">Добавить книгу</a>
 			</li>
 		</ul>
 
-		<a href="" ng-click="bl.updateFromJson($event)">Обновить</a>
-
-		<a href="" ng-click="bl.addBook($event)">Добавить книгу</a>
+		<!--<a href="" ng-click="bl.updateFromJson($event)">Обновить</a>-->
 
 		<div class="book-list" flow-init>
 			<div class="book" ng-repeat="(key, book) in bl.bookList | orderBy:bl.sortType:bl.sortReverse">

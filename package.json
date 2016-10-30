@@ -45,11 +45,11 @@
     "rimraf": "^2.3.1"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "git+https://github.com/umGreen/testTaskFromKasp.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/umGreen/testTaskFromKasp/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/umGreen/testTaskFromKasp#readme"
 }

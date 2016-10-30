@@ -1,0 +1,58 @@
+.dr-book-editor,
+[dr-book-editor],
+dr-book-editor
+	.book-editor
+		md-input-container
+			margin 0 0 50px 0
+
+			&.md-input-focused label:not(.md-no-float),
+			&.md-input-has-placeholder label:not(.md-no-float),
+			&.md-input-has-value label:not(.md-no-float)
+				margin-bottom 0
+
+		&__title
+			margin-bottom 30px
+			font-size 20px
+		&__image
+			display block
+			float right
+		&__image-data
+			width 100px
+			img
+				display block
+				width 100%
+				height auto
+		&__authors
+			margin-bottom 10px
+			&-add
+				display inline-block
+				margin-bottom 30px
+				cursor pointer
+				font-size 14px
+				opacity .7
+				.fa
+					margin-right 5px
+				&:hover
+					opacity 1
+			&-delete
+				float right
+				margin-top 18px
+				color #ccc
+				&:hover
+					color #666
+			&-item
+				margin-bottom 0
+
+				md-input-container
+					display inline-block
+					width 45%
+					margin 0
+					font-size 12px
+
+					&.md-input-focused label:not(.md-no-float),
+					&.md-input-has-placeholder label:not(.md-no-float),
+					&.md-input-has-value label:not(.md-no-float)
+						margin-bottom -7px
+
+					.md-char-counter
+						font-size 10px

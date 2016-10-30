@@ -1,0 +1,12 @@
+<div class="row" ng-controller="EditBookCtrl as eb">
+	<div class="col-md-12">
+
+		<dr-book-editor
+				data="eb.book"
+				ctx="eb"
+				mode="edit"
+				save-cb="eb.saveBookCb">
+		</dr-book-editor>
+
+	</div>
+</div>

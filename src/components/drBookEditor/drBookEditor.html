@@ -1,0 +1,92 @@
+<div class="book-editor">
+	<div class="book-editor__title">Редактор книги</div>
+	<form name="bookEdit">
+		<div class="row">
+			<div class="col-md-4">
+				<md-input-container>
+					<label>Название книги</label>
+					<input ng-model="bkEdtr.data.name" md-maxlength="30" required>
+				</md-input-container>
+			</div>
+			<div class="col-md-4">
+				<div>Авторы</div>
+				<ul class="book-editor__authors">
+					<li class="book-editor__authors-item"
+						ng-repeat="(key, author) in bkEdtr.data.authors">
+						<md-input-container>
+							<label>Имя</label>
+							<input ng-model="author[0]" md-maxlength="20" required>
+						</md-input-container>
+						<md-input-container>
+							<label>Фамилия</label>
+							<input ng-model="author[1]" md-maxlength="20" required>
+						</md-input-container>
+						<span class="book-editor__authors-delete"
+							  ng-click="bkEdtr.deleteAuthor($event, key)">
+									<i class="fa fa-trash"></i>
+								</span>
+					</li>
+				</ul>
+				<span class="book-editor__authors-add" ng-if="bkEdtr.data.authors.length < 5"
+					  ng-click="bkEdtr.addAuthor($event)">
+							<i class="fa fa-plus-circle"></i>
+							Добавить автора
+						</span>
+			</div>
+			<div class="col-md-4">
+				<div class="book-editor__image"
+					 flow-init
+					 flow-files-added="bkEdtr.processFiles($files)">
+					<md-button class="md-fab md-primary" aria-label="Use Android" flow-btn  ng-if="!bkEdtr.data.image.length">
+						<i class="fa fa-picture-o"></i>
+					</md-button>
+					<div class="book-editor__image-data" ng-if="bkEdtr.data.image.length">
+						<img ng-src="{{bkEdtr.data.image}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<md-input-container>
+					<label>Количество страниц</label>
+					<input ng-model="bkEdtr.data.pages" md-maxlength="5" required ng-pattern="/\d+/">
+				</md-input-container>
+			</div>
+			<div class="col-md-4">
+				<md-input-container>
+					<label>Название издательства</label>
+					<input ng-model="bkEdtr.data.publishing_house" required md-maxlength="30">
+				</md-input-container>
+			</div>
+			<div class="col-md-4">
+				<md-input-container>
+					<label>Год публикации</label>
+					<input ng-model="bkEdtr.data.publication">
+				</md-input-container>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<md-input-container>
+					<label>ISBN</label>
+					<input ng-model="bkEdtr.data.isbn" required md-maxlength="13" ng-pattern="/\d{1}[-]\d{3}[-]\d{5}[-]\d{1}/">
+				</md-input-container>
+			</div>
+			<div class="col-md-4">
+				<md-input-container>
+					<label>Дата выхода в тираж</label>
+					<input ng-model="bkEdtr.data.edition">
+				</md-input-container>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<md-button ng-disabled="!bookEdit.$valid" class="md-raised md-primary" ng-click="bkEdtr.saveCard($event)">Сохранить</md-button>
+			</div>
+		</div>
+	</form>
+</div>

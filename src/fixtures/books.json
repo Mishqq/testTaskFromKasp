@@ -1,47 +1,94 @@
 [
 	{
 		"id": 1,
-		"name": "Книга 1",
+		"name": "Гиперион",
 		"authors": [
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"]
+			{"f_name": "Дэн", "s_name": "Симмонс"}
 		],
-		"pages": 146,
-		"publishing_house": "Издательство 1",
-		"publication": 1900,
-		"edition": 1900,
-		"isbn": "1-123-12345-1",
+		"pages": 570,
+		"publishing_house": "Doubleday",
+		"publication": 1989,
+		"edition": 1989,
+		"isbn": "0-385-24949-7",
 		"image": ""
 	},
 	{
 		"id": 2,
-		"name": "Книга 2",
+		"name": "Игра престолов",
 		"authors": [
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"]
+			{"f_name": "Джордж Р. Р.", "s_name": "Мартин"}
 		],
-		"pages": 146,
-		"publishing_house": "Издательство 1",
-		"publication": 1901,
-		"edition": 1901,
-		"isbn": "1-123-12345-1",
+		"pages": 864,
+		"publishing_house": "Bantam Spectra",
+		"publication": 1996,
+		"edition": 1996,
+		"isbn": "978-5-17-098228-8",
 		"image": ""
 	},
 	{
 		"id": 3,
-		"name": "Книга 3",
+		"name": "Болтливый мертвец",
 		"authors": [
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"],
-			["Имя", "Фамилия"]
+			{"f_name": "Макс", "s_name": "Фрай"}
 		],
-		"pages": 146,
-		"publishing_house": "Издательство 1",
-		"publication": 1902,
-		"edition": 1902,
-		"isbn": "1-123-12345-1",
+		"pages": 529,
+		"publishing_house": "Амфора",
+		"publication": 2005,
+		"edition": 2005,
+		"isbn": "5-94278-736-0",
+		"image": ""
+	},
+	{
+		"id": 4,
+		"name": "Гарри Поттер и философский камень",
+		"authors": [
+			{"f_name": "Джоан", "s_name": "Роулинг"}
+		],
+		"pages": 529,
+		"publishing_house": "Bloomsbury Publishing",
+		"publication": 1997,
+		"edition": 1995,
+		"isbn": "978-5-35-303170-3",
+		"image": ""
+	},
+	{
+		"id": 5,
+		"name": "Пикник на обочине",
+		"authors": [
+			{"f_name": "Аркадий", "s_name": "Стругацкий"},
+			{"f_name": "Борис", "s_name": "Стругацкий"}
+		],
+		"pages": 224,
+		"publishing_house": "АСТ Москва, АСТ, Хранитель",
+		"publication": 1972,
+		"edition": 1971,
+		"isbn": "5-17-040960-5",
+		"image": ""
+	},
+	{
+		"id": 6,
+		"name": "Сумеречный Дозор",
+		"authors": [
+			{"f_name": "Сергей", "s_name": "Лукьяненко"}
+		],
+		"pages": 445,
+		"publishing_house": "АСТ",
+		"publication": 2004,
+		"edition": 2004,
+		"isbn": "978-5-17-087843-7",
+		"image": ""
+	},
+	{
+		"id": 7,
+		"name": "Сумерки",
+		"authors": [
+			{"f_name": "Дмитрий", "s_name": "Глуховский"}
+		],
+		"pages": 312,
+		"publishing_house": "Популярная литература",
+		"publication": 2007,
+		"edition": 2007,
+		"isbn": "978-5-903396-04-7",
 		"image": ""
 	}
 ]

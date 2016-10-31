@@ -5,17 +5,22 @@
 		.module('app')
 		.controller('booksListCtrl', booksListCtrl);
 
-	booksListCtrl.$inject = ['$scope', '$http', '$state', '$stateParams', 'bookStore', 'localStorageService'];
+	booksListCtrl.$inject = ['$scope', '$http', '$state', '$stateParams', 'localStorageService'];
 
-	function booksListCtrl($scope, $http, $state, $stateParams, bookStore, localStorageService){
+	function booksListCtrl($scope, $http, $state, $stateParams, localStorageService){
 		this.$scope = $scope;
 		this.$http = $http;
 		this.$state = $state;
-		this.bookStore = bookStore;
 		this.localStorageService = localStorageService;
 
 		this.bookList = this.localStorageService.get('bookList');
 
+		this.filters = [
+			{name: 'Названию', type: 'name'},
+			{name: 'Автору', type: '_author'},
+			{name: 'Дате публикации', type: 'publication'},
+			{name: 'Количеству страниц', type: 'pages'}
+		];
 		this.sortType = 'name';
 		this.sortReverse = false;
 
@@ -23,9 +28,7 @@
 
 	}
 
-	booksListCtrl.prototype.init = function(){
-		console.log('---=== bookList ===---');
-	};
+	booksListCtrl.prototype.init = function(){};
 
 	booksListCtrl.prototype.editBook = function(e, item){
 		e.preventDefault();
@@ -68,7 +71,11 @@
 		e.stopPropagation();
 
 		this.$http.get('./src/fixtures/books.json').then((resp)=>{
+			for(let i=0; i<resp.data.length; i+=1){
+				resp.data[i]._author = resp.data[i].authors[0]['s_name'];
+			}
 			this.localStorageService.set('bookList', resp.data);
+			this.$state.reload();
 		});
 	};
 })();

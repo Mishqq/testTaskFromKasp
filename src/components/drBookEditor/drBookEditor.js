@@ -41,7 +41,9 @@
 			edition: "",
 			isbn: "",
 			image: ""
-		}
+		};
+
+		this.returnIsbnConfig(this.data.isbn);
 	};
 
 	drBookEditorCtrl.prototype.processFiles = function(files){
@@ -82,4 +84,23 @@
 
 		this.data.authors.push(["", ""]);
 	};
+
+	drBookEditorCtrl.prototype.returnIsbnConfig = function(isbn){
+		console.log('---=== isbn ===---', this.data.isbn);
+		let arr = isbn;
+		arr = arr.split('-');
+		this.isbnConfig = (arr[0].length == 1) ?
+			{
+				length: 13,
+				pattern: 'x-xxx-xxxxx-x',
+				re: new RegExp('^(?:ISBN(?:-10)?:?●)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-●]){3})[-●0-9X]{13}$)[0-9]{1,5}[-●]?[0-9]+[-●]?[0-9]+[-●]?[0-9X]$')
+			} :
+			{
+				length: 17,
+				pattern: '9xx-x-xx-xxxxxx-x',
+				re: new RegExp('^(?:ISBN(?:-13)?:?●)?(?=[0-9]{13}$|(?=(?:[0-9]+[-●]){4})[-●0-9]{17}$)97[89][-●]?[0-9]{1,5}[-●]?[0-9]+[-●]?[0-9]+[-●]?[0-9]$')
+			};
+	};
+
+
 })();

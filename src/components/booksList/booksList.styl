@@ -1,9 +1,14 @@
 .filters
-	margin 10px 0 10px -40px
+	margin 10px 0 10px 0
+	&:before
+		content: 'Сортировать по:'
 	&__item
 		display inline-block
 		position relative
 		margin-left 40px
+
+		&:first-child
+			margin-left 10px
 
 		& .fa
 			position absolute

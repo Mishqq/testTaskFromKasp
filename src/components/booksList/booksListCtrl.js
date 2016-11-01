@@ -21,14 +21,24 @@
 			{name: 'Дате публикации', type: 'publication'},
 			{name: 'Количеству страниц', type: 'pages'}
 		];
-		this.sortType = 'name';
-		this.sortReverse = false;
 
 		this.init();
 
 	}
 
-	booksListCtrl.prototype.init = function(){};
+	booksListCtrl.prototype.init = function(){
+		this.getSortConfFromStorage();
+	};
+
+	booksListCtrl.prototype.getSortConfFromStorage = function(){
+		let sortConf = this.localStorageService.get('sortConf');
+		if(!sortConf){
+			sortConf = {type:'name', reverse: false};
+			this.localStorageService.set('sortConf', sortConf)
+		}
+		this.sortType = sortConf.type;
+		this.sortReverse = sortConf.reverse;
+	};
 
 	booksListCtrl.prototype.editBook = function(e, item){
 		e.preventDefault();
@@ -62,8 +72,11 @@
 		if(this.sortType === type) {
 			this.sortReverse = !this.sortReverse;
 		} else {
+			this.sortReverse = false;
 			this.sortType = type;
 		}
+
+		this.localStorageService.set('sortConf', {type:this.sortType, reverse: this.sortReverse})
 	};
 
 	booksListCtrl.prototype.updateFromJson = function(e){

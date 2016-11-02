@@ -1,0 +1,9 @@
+<ul class="filters">
+	<li class="filters__item" ng-repeat="filter in sb.data">
+		<a href="/" ng-click="sb.filterClick($event, filter.type)" ng-bind="filter.name"></a>
+		<i ng-if="sb.activeFilter == filter.type"
+		   class="fa"
+		   ng-class="{'fa-sort-desc': !sb.reverseStatus, 'fa-sort-asc': sb.reverseStatus}"
+		   aria-hidden="true"></i>
+	</li>
+</ul>

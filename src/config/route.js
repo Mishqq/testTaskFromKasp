@@ -9,10 +9,10 @@
 				url: '/',
 				views: {
 					"": {
-						templateUrl: './build/templates/main/index.html',
+						templateUrl: './build/templates/viewMain/viewMain.html',
 					},
 					"booksList@main": {
-						templateUrl: './build/templates/booksList/index.html',
+						templateUrl: './build/templates/viewBooksList/viewBooksList.html',
 					}
 				}
 			})
@@ -23,7 +23,7 @@
 						template: '',
 					},
 					"editBookView": {
-						templateUrl: './build/templates/editBook/index.html'
+						templateUrl: './build/templates/viewEditBook/viewEditBook.html'
 					}
 				}
 			})
@@ -34,7 +34,7 @@
 						template: '',
 					},
 					"createBookView": {
-						templateUrl: './build/templates/createBook/index.html'
+						templateUrl: './build/templates/viewCreateBook/viewCreateBook.html'
 					}
 				}
 			})

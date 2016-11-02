@@ -40,14 +40,31 @@
 		this.sortReverse = sortConf.reverse;
 	};
 
-	booksListCtrl.prototype.editBook = function(e, item){
-		e.preventDefault();
-		e.stopPropagation();
-
-		this.localStorageService.set('editBook', item);
-		this.$state.go('main.edit', {id: item.id});
+	/**
+	 * Функция перехода в редактор книги
+	 * Передается как коллбек в директиву dr-book-card => edit-book-cb
+	 * @param book
+	 */
+	booksListCtrl.prototype.editBook = function(book){
+		this.localStorageService.set('editBook', book);
+		this.$state.go('main.edit', {id: book.id});
 	};
 
+	/**
+	 * Функция удаления книги
+	 * Передается как коллбек в директиву dr-book-card => delete-book-cb
+	 * @param book
+	 */
+	booksListCtrl.prototype.deleteBook = function(book){
+		for(let i=0; i<this.bookList.length; i+=1){
+			if(book.id === this.bookList[i].id) this.bookList.splice(i, 1);
+		}
+		this.localStorageService.set('bookList', this.bookList);
+	};
+
+	/**
+	 * Функция добавления книги
+	 */
 	booksListCtrl.prototype.addBook = function(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -55,20 +72,12 @@
 		this.$state.go('main.create');
 	};
 
-	booksListCtrl.prototype.deleteBook = function(e, book){
-		e.preventDefault();
-		e.stopPropagation();
-
-		for(let i=0; i<this.bookList.length; i+=1){
-			if(book.id === this.bookList[i].id) this.bookList.splice(i, 1);
-		}
-		this.localStorageService.set('bookList', this.bookList);
-	};
-
-	booksListCtrl.prototype.sortBooks = function(e, type){
-		e.preventDefault();
-		e.stopPropagation();
-
+	/**
+	 * Функция сортировки книг по клику на фильтр
+	 * Передается как коллбек в директиву dr-sort-books => click-cb
+	 */
+	booksListCtrl.prototype.sortBooks = function(type){
+		console.log('---=== type ===---', type);
 		if(this.sortType === type) {
 			this.sortReverse = !this.sortReverse;
 		} else {

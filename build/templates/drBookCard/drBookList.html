@@ -1,0 +1,43 @@
+<div class="book" ng-controller="drBookCardCtrl as bCard">
+	<div class="book__content">
+		<div class="book__right-info">
+			<div class="book__image" ng-if="book.image.length">
+				<img ng-src="{{book.image}}"/>
+			</div>
+			<div class="book__isbn" ng-bind="book.isbn"></div>
+		</div>
+		<div class="book__name" ng-bind="book.name"></div>
+		<div class="book__author-list">
+			<div class="book__author" ng-repeat="author in book.authors">
+				<span ng-bind="author['s_name']"></span>,
+				<span ng-bind="author['f_name']"></span>
+			</div>
+		</div>
+		<div class="book__info">
+			<div class="book__info-item">
+				<span class="book__info-label">Количество страниц:</span>
+				<span class="book__info-data" ng-bind="book.pages"></span>
+			</div>
+			<div class="book__info-item">
+				<span class="book__info-label">Издательский дом:</span>
+				<span class="book__info-data" ng-bind="book.publishing_house"></span>
+			</div>
+			<div class="book__info-item">
+				<span class="book__info-label">Дата публикации:</span>
+				<span class="book__info-data" ng-bind="book.publication"></span>
+			</div>
+			<div class="book__info-item">
+				<span class="book__info-label">Дата издания:</span>
+				<span class="book__info-data" ng-bind="book.edition"></span>
+			</div>
+		</div>
+	</div>
+	<div class="book__panel">
+		<div class="book__edit">
+			<i class="fa fa-pencil" aria-hidden="true" ng-click="bl.editBook($event, book)"></i>
+		</div>
+		<div class="book__delete">
+			<span ng-click="bl.deleteBook($event, book)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+		</div>
+	</div>
+</div>

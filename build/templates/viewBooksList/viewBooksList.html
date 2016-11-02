@@ -1,0 +1,34 @@
+<div class="row" ng-controller="booksListCtrl as bl">
+	<div class="col-md-12">
+		<br>
+
+		<div>
+			<a ui-sref="main.form">Форма</a>
+		</div>
+
+		<div class="update-json">
+			<a href="/" ng-click="bl.updateFromJson($event)">Получить данные из Json (Обнулить localStorage)</a>
+		</div>
+
+		<div class="add-book">
+			<a href="/" ng-click="bl.addBook($event)">Добавить книгу</a>
+		</div>
+
+		<dr-sort-books data="bl.filters"
+					   ctx="bl"
+					   click-cb="bl.sortBooks"
+					   active-filter="bl.sortType"
+					   reverse-status="bl.sortReverse">
+		</dr-sort-books>
+
+		<dr-book-list>
+			<dr-book-card
+					ng-repeat="(key, book) in bl.bookList | orderBy:bl.sortType:bl.sortReverse"
+					data="book"
+					ctx="bl"
+					edit-link-cb="bl.editBook"
+					delete-link-cb="bl.deleteBook">
+			</dr-book-card>
+		</dr-book-list>
+	</div>
+</div>
